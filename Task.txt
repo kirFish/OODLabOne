@@ -1,0 +1,50 @@
+﻿Translators
+
+There is a database of translators. We want to modify them for clients according to their and our needs. 
+There might be several modifications applied to the same translator. We never know which modifications will be optimal for different users. 
+The solution must allow for:
+ - adding new types of modifications;
+ - composing of any set of modifications together.
+A new composition should not require any new class definition. 
+
+Task:
+
+  Part 1:
+  Implement methods in TranslatorManipulator (you are allowed to add new files to the project) to match the output and following criteria:
+  - SetTranslatorToBroken:
+    - MaxLength is 0,
+    - GetTranslationsLeft returns 0,
+    - TranslateMessage returns provided message,
+    - type is Broken,
+  - MakeTranslatorSmart:
+    - when message is longer than maxlength it is divided into substrings of size maxlength and than translated, output is concatenation of those translations, 
+    - type is Smart
+  - EncryptMessages:
+    - TranslateMessage should encrypt processed message using Caesar Cipher and provided offset,
+    - TranslateMessage should return "Translator auto-destroyed" after number of calls to TranslateMessage greater than provided value,
+    - GetTranslationsLeft returns number of translations left before auto-destruction,
+    - type is Encryption,
+  - DecryptMessages:
+    - TranslateMessage should decrypt processed message using Caesar Cipher and provided offset,
+    - type is Decryption.
+ 
+  Part 2:
+  For all translators in the database: 
+  – change set their type to Decryption with offset 10, then make them smart.
+
+  For all translators in the database: 
+  - set their type to broken with a message "out of order".
+
+  In the database search for a translator with max length equal to 30 and named Rapid.  
+
+  !!!
+  Your code should be off good quality and easy to extend. For example: adding a method to rename the translator
+  should not require any changes to your code.
+  !!! 
+
+  You are *not* allowed to:
+  - modify ITranslator.cs
+  - modify Translator.cs
+  - modify TranslatorType.cs
+  - modify Program.cs
+ 
