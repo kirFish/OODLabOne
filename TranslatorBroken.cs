@@ -6,7 +6,7 @@
         private int translationNumber;
         public TranslatorBroken(ITranslator translator)
         {
-            name = "broken";
+            name = translator.GetName();
             translationNumber = 0;
         }
 
